@@ -27,7 +27,8 @@
               }
             ],
             "styles": [
-              "src/app/core/styles.css"
+              "src/app/core/styles.css",
+              "src/app/constants/color.css"
             ],
             "scripts": [],
             "server": "src/app/core/main.server.ts",
@@ -90,7 +91,8 @@
               }
             ],
             "styles": [
-              "src/app/core/styles.css"
+              "src/app/core/styles.css",
+              "src/app/constants/color.css"
             ],
             "scripts": []
           }
