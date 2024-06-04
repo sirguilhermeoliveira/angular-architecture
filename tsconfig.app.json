@@ -8,8 +8,8 @@
     ]
   },
   "files": [
-    "src/main.ts",
-    "src/main.server.ts",
+    "src/app/core/main.ts",
+    "src/app/core/main.server.ts",
     "server.ts"
   ],
   "include": [

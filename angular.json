@@ -14,8 +14,8 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/angular-architecture",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
+            "index": "src/app/core/index.html",
+            "browser": "src/app/core/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -27,10 +27,10 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/app/core/styles.css"
             ],
             "scripts": [],
-            "server": "src/main.server.ts",
+            "server": "src/app/core/main.server.ts",
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
@@ -90,7 +90,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/app/core/styles.css"
             ],
             "scripts": []
           }

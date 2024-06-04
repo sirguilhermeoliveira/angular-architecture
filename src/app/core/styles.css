@@ -1,0 +1,5 @@
+html, body {
+    margin: 0; /* Remova as margens padrão */
+    padding: 0; /* Remova o preenchimento padrão */
+    font-family: Arial, sans-serif; /* Defina a família de fontes padrão */
+  }
