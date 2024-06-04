@@ -1,5 +1,10 @@
 <div class="home-container">
-    <h3>Home</h3>
-    <h2>Exemplo integração</h2>
-    <h1 ngIf="data">{{pokemon}}</h1>
+  <h1>Home</h1>
+  <h2>Exemplo integração</h2>
+  <h3 ngIf="data">{{pokemon}}</h3>
+  <row>
+    <list-tasks [tasks]="['Tarefa 1', 'Tarefa 2', 'Tarefa 3']"></list-tasks>
+  </row>
+  <h2>Exemplo utils</h2>
+  <h3 ngIf="formattedValue">{{formattedValue}}</h3>
   </div>

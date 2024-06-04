@@ -1,4 +1,8 @@
-import { Component, OnInit, Injectable  } from '@angular/core';
+import { Component, Injectable  } from '@angular/core';
+import { ListTasksComponent } from '@components/list-tasks/list-tasks.component';
+import { RowComponent } from '@components/global/row/row.component';
+import { NumberUtils } from '@utils/number-utils';
+import { HttpService } from '@services/http.service';
 
 interface Pokemon {
   name: string;
@@ -10,6 +14,7 @@ interface Pokemon {
 
 @Component({
   selector: 'app-home',
+  imports: [ListTasksComponent, RowComponent],
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -17,23 +22,21 @@ interface Pokemon {
 
 export class HomeComponent {
   pokemon: Pokemon | undefined;
+  formattedValue: string;
+
+  constructor(private numberUtils: NumberUtils, private httpService: HttpService) {
+    const value = 1234.56; 
+    this.formattedValue = this.numberUtils.parseToCurrency(value);
+  }
 
   ngOnInit(): void {
     this.fetchData();
   }
 
-
   fetchData() {
-    fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
+    this.httpService.fetchWithHeaders('pokemon/ditto')
       .then(pokemon => {
         this.pokemon = pokemon.name;
-
       })
       .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
