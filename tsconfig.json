@@ -2,6 +2,16 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@utils/": ["src/app/utils"],
+      "@components/": ["src/app/components"],
+      "@pages/": ["src/app/pages"],
+      "@constants/": ["src/app/constants"],
+      "@routes/": ["src/app/routes"],
+      "@services/": ["src/app/services"],
+      "@core/": ["src/app/core"],
+    },
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
