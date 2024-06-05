@@ -1,23 +1,23 @@
 <div class="login-container">
-    <h2>Login</h2>
-    <form (ngSubmit)="login()" #loginForm="ngForm">
-      <div class="form-group">
-        <label for="cellphone">Phone:</label>
-        <input type="text" id="cellphone" name="cellphone" [(ngModel)]="cellphone" mask="(00) 00000-0000" #cellphoneInput="ngModel" minlength="11" maxlength="15" required>
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="cellphone">Phone:</label>
+      <input type="text" id="cellphone" formControlName="cellphone" mask="(00) 00000-0000">
+      <div *ngIf="loginForm.get('cellphone')?.invalid && (loginForm.get('cellphone')?.dirty || loginForm.get('cellphone')?.touched)">
+        <div *ngIf="loginForm.get('cellphone')?.errors?.['required']">Phone is required.</div>
+        <div *ngIf="loginForm.get('cellphone')?.errors?.['minlength']">Phone must be at least 11 characters long.</div>
+        <div *ngIf="loginForm.get('cellphone')?.errors?.['maxlength']">Phone cannot be more than 15 characters long.</div>
       </div>
-      <div *ngIf="cellphoneInput.invalid && (cellphoneInput.dirty || cellphoneInput.touched)">
-        <div *ngIf="cellphoneInput.errors?.['required']">Phone is required.</div>
-        <div *ngIf="cellphoneInput.errors?.['minlength']">Phone must be at least 10 characters long.</div>
-        <div *ngIf="cellphoneInput.errors?.['maxlength']">Phone cannot be more than 10 characters long.</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input [type]="passwordFieldType" id="password" formControlName="password">
+      <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+        <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+        <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</div>
       </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-          <input [type]="passwordFieldType" id="password" name="password" [(ngModel)]="password" #passwordInput="ngModel" minlength="6" required>
-        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
-          <div *ngIf="passwordInput.errors?.['required']">Password is required.</div>
-          <div *ngIf="passwordInput.errors?.['minlength']">Password must be at least 6 characters long.</div>
-        </div>
-      </div>
-      <button type="submit" [disabled]="loginForm.invalid" [ngStyle]="{'background-color': loginForm.valid ? 'green' : 'red'}">Login</button>
-    </form>
-  </div>
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid" [ngStyle]="{'background-color': loginForm.valid ? 'green' : 'red'}">Login</button>
+  </form>
+</div>
