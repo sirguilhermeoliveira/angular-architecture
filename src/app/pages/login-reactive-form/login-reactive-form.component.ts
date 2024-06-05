@@ -6,15 +6,15 @@ import { RowComponent } from '@components/global/row/row.component';
 import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-login-reactive-form',
   standalone: true,
   imports: [FormsModule, RowComponent, NgxMaskDirective, CommonModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: './login-reactive-form.component.html',
+  styleUrl: './login-reactive-form.component.css'
 })
 
 
-export class LoginComponent {
+export class LoginReactiveFormComponent {
   title = 'Login';
   cellphone: string | undefined;
   password: string | undefined;
