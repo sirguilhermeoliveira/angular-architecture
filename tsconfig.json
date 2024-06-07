@@ -12,6 +12,7 @@
       "@core/*": ["src/app/core/*"],
       "@interfaces/*": ["src/app/interfaces/*"],
       "@assets/*": ["src/app/assets/*"],
+      "@store/*": ["src/app/store/*"],
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

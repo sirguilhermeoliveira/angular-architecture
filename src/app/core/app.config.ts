@@ -5,11 +5,13 @@ import { routes } from '../routes/app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { IConfig, provideEnvironmentNgxMask } from 'ngx-mask'
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideStore } from '@ngrx/store';
+import { pokemonReducer } from '@store/pokemon/pokemon.reducer';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideHttpClient(withInterceptorsFromDi()), provideEnvironmentNgxMask(maskConfig), provideRouter(routes), provideClientHydration()]
+  providers: [provideStore({ pokemon: pokemonReducer }),provideZoneChangeDetection({ eventCoalescing: true }), provideHttpClient(withInterceptorsFromDi()), provideEnvironmentNgxMask(maskConfig), provideRouter(routes), provideClientHydration()]
 };

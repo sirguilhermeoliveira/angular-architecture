@@ -1,7 +1,7 @@
 <div class="home-container">
   <h1>{{'HELLO' | translate}}, Home</h1>
   <h2>Exemplo integração</h2>
-  <h3 ngIf="data">{{pokemon}}</h3>
+  <h3 ngIf="pokemonName$">{{pokemonName$ | async}}</h3>
   <row>
     <list-tasks [tasks]="['Tarefa 1', 'Tarefa 2', 'Tarefa 3']"></list-tasks>
   </row>
