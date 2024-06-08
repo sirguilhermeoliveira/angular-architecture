@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms'; // Importe FormGroup, FormBuilder e Validators
 import { Router } from '@angular/router';
+import { AuthService } from '@auth/auth.service';
 import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
@@ -14,9 +15,8 @@ import { NgxMaskDirective } from 'ngx-mask';
 export class LoginReactiveFormComponent {
   loginForm: FormGroup; // Declare um FormGroup
   passwordFieldType: string = 'password';
-  authentication: boolean = true;
 
-  constructor(private fb: FormBuilder, private router: Router) { 
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) { 
     this.loginForm = this.fb.group({ 
       cellphone: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(15)]], 
       password: ['', [Validators.required, Validators.minLength(6)]] 
@@ -26,9 +26,11 @@ export class LoginReactiveFormComponent {
   login() {
     const cellphone = this.loginForm.get('cellphone')?.value;
     const password = this.loginForm.get('password')?.value;
-    this.authentication = true;
-    if(this.authentication && cellphone.length > 0 && password.length > 0) { 
-        this.router.navigate(['/home']);
+    const isAuthenticated = this.authService.login(cellphone, password);
+    if(isAuthenticated) { 
+      this.router.navigate(['/home']);
+    } else{
+      alert("Login Failed")
     }
   }
   }

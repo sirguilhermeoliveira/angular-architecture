@@ -13,6 +13,8 @@
       "@interfaces/*": ["src/app/interfaces/*"],
       "@assets/*": ["src/app/assets/*"],
       "@store/*": ["src/app/store/*"],
+      "@auth/*": ["src/app/auth/*"],
+      "@environments/*": ["src/app/environments/*"],
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

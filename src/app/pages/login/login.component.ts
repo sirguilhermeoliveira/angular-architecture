@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '@auth/auth.service';
 import { RowComponent } from '@components/global/row/row.component';
 import { NgxMaskDirective } from 'ngx-mask';
 
@@ -19,20 +20,23 @@ export class LoginComponent {
   cellphone: string | undefined;
   password: string | undefined;
   passwordFieldType: string = 'password';
-  authentication: boolean = true;
   
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   togglePasswordVisibility() {
     this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
   }
 
   login() {
-    this.cellphone = '';
-    this.password = '';
-    this.authentication = true;
-    if(this.authentication){
-        this.router.navigate(['/home']);
+    if (this.cellphone && this.password) {
+      const isAuthenticated = this.authService.login(this.cellphone, this.password);
+      if (isAuthenticated) {
+        this.router.navigate(['/home']); 
+      } else {
+        alert('Login failed');
+      }
+    } else {
+      alert('Please enter cellphone and password');
     }
-  }
+}
 }
