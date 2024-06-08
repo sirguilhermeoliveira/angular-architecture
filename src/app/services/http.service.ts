@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { RequestOptions } from '@interfaces/request-options.interface';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class HttpService {
       }
     };
 
-    return fetch(`https://pokeapi.co/api/v2/${endpoint}`, requestOptions)
+    return fetch(`${environment.API_URL}${endpoint}`, requestOptions)
       .then((response) => response.json())
       .catch((error) => {
         console.error('An error occurred during the request:', error);
