@@ -6,3 +6,12 @@
     border-radius: 5px;
   }
   
+  button {
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+    background-color: green;
+  }
