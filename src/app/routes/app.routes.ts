@@ -5,7 +5,7 @@ import { HomeComponent } from '@pages/home/home.component';
 import { AuthGuard } from '@auth/auth.guard';
 
 
-export const routes: Routes = [  { path: '', redirectTo: '/login', pathMatch: 'full' },
+export const routes: Routes = [  { path: '', redirectTo: '/home', pathMatch: 'full' },
 { path: 'login', component: LoginComponent },
 { path: 'login-reactive-form', component: LoginReactiveFormComponent },
 { path: 'home', component: HomeComponent, canActivate:[AuthGuard] },
