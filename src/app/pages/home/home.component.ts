@@ -1,13 +1,12 @@
 import { Component, Injectable  } from '@angular/core';
 import { ListTasksComponent } from '@components/list-tasks/list-tasks.component';
 import { RowComponent } from '@components/global/row/row.component';
-import { NumberUtils } from '@utils/number-utils';
 import { HttpService } from '@services/http.service';
 import { I18nModule } from '@assets/i18n/i18n.module';
 import * as PokemonActions from '@store/pokemon/pokemon.actions'; 
 import { Store, select } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 
 interface Pokemon {
   name: string;
@@ -19,7 +18,7 @@ interface Pokemon {
 
 @Component({
   selector: 'app-home',
-  imports: [ListTasksComponent, RowComponent, I18nModule, AsyncPipe],
+  imports: [ListTasksComponent, RowComponent, I18nModule, AsyncPipe, CommonModule],
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -28,11 +27,11 @@ interface Pokemon {
 export class HomeComponent {
   pokemonName$!: Observable<string>;
   subscription: Subscription | undefined;
-  formattedValue: string;
+  formattedValue: number;
 
-  constructor(private numberUtils: NumberUtils, private httpService: HttpService, private store: Store<{ pokemon: { pokemonName: string } }>) {
+  constructor(private httpService: HttpService, private store: Store<{ pokemon: { pokemonName: string } }>) {
     const value = 1234.56; 
-    this.formattedValue = this.numberUtils.parseToCurrency(value);
+    this.formattedValue = value;
   }
 
   ngOnInit(): void {

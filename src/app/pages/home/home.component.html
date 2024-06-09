@@ -6,5 +6,5 @@
     <list-tasks [tasks]="['Tarefa 1', 'Tarefa 2', 'Tarefa 3']"></list-tasks>
   </row>
   <h2>Exemplo utils</h2>
-  <h3 ngIf="formattedValue">{{formattedValue}}</h3>
+  <h3 ngIf="formattedValue">{{ formattedValue | currency:'BRL':'symbol':'1.2-2' }}</h3>
   </div>
