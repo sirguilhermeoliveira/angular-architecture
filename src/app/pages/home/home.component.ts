@@ -7,6 +7,8 @@ import * as PokemonActions from '@store/pokemon/pokemon.actions';
 import { Store, select } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { AsyncPipe, CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { AuthService } from '@auth/auth.service';
 
 interface Pokemon {
   name: string;
@@ -29,7 +31,7 @@ export class HomeComponent {
   subscription: Subscription | undefined;
   formattedValue: number;
 
-  constructor(private httpService: HttpService, private store: Store<{ pokemon: { pokemonName: string } }>) {
+  constructor(private authService: AuthService, private router: Router, private httpService: HttpService, private store: Store<{ pokemon: { pokemonName: string } }>) {
     const value = 1234.56; 
     this.formattedValue = value;
   }
@@ -47,7 +49,9 @@ export class HomeComponent {
       .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
       });
-  
-
 }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']); 
+  }
 }
