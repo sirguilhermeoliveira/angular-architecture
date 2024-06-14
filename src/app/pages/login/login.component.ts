@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth/auth.service';
+import { FormInputComponent } from '@components/form-input/form-input.component';
 import { RowComponent } from '@components/global/row/row.component';
 import { MainButtonComponent } from '@components/main-button/main-button.component';
 import { NgxMaskDirective } from 'ngx-mask';
@@ -10,7 +11,7 @@ import { NgxMaskDirective } from 'ngx-mask';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, RowComponent, NgxMaskDirective, CommonModule, MainButtonComponent],
+  imports: [FormsModule, RowComponent, NgxMaskDirective, CommonModule, MainButtonComponent, FormInputComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

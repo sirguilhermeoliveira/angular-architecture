@@ -5,6 +5,7 @@ import { AuthService } from '@auth/auth.service';
 import { LoginReactiveFormComponent } from './login-reactive-form.component';
 import { NgxMaskDirective } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
+import { FormInputComponent } from '@components/form-input/form-input.component';
 
 describe('LoginReactiveFormComponent', () => {
   let component: LoginReactiveFormComponent;
@@ -18,7 +19,7 @@ describe('LoginReactiveFormComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [LoginReactiveFormComponent],
-      imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective],
+      imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective, FormInputComponent],
       providers: [
         FormBuilder,
         { provide: AuthService, useValue: mockAuthService },
