@@ -15,10 +15,10 @@ import { NgxMaskDirective } from 'ngx-mask';
 })
 
 
-export class LoginComponent {
+export class Login {
   title = 'Login';
-  cellphone: string | undefined;
-  password: string | undefined;
+  cellphone: string = '';
+  password: string = '';
   passwordFieldType: string = 'password';
   
   constructor(private router: Router, private authService: AuthService) {}
