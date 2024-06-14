@@ -13,7 +13,7 @@ module.exports = [
       ...angular.configs.tsRecommended,
     ],
     processor: angular.processInlineTemplates,
-    plugins: ["unused-imports"],
+    plugins: ["unused-imports", '@typescript-eslint', 'simple-import-sort', 'angular-eslint'],
     rules: {
       "@angular-eslint/directive-selector": [
         "error",
@@ -23,6 +23,9 @@ module.exports = [
           style: "camelCase",
         },
       ],
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
+      'sort-imports': 'off',
       "@angular-eslint/component-selector": [
         "error",
         {
