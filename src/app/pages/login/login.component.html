@@ -18,6 +18,6 @@
         <div *ngIf="passwordInput.errors?.['minlength']">Password must be at least 6 characters long.</div>
       </div>
     </div>
-    <button type="submit" [disabled]="loginForm.invalid" [ngStyle]="{'background-color': loginForm.valid ? 'green' : 'red'}">Login</button>
+    <main-button [isDisabled]="loginForm.invalid" [title]="'Login'" [buttonType]="'submit'"></main-button>
   </form>
 </div>

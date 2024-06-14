@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms'; // Importe FormGroup, FormBuilder e Validators
 import { Router } from '@angular/router';
 import { AuthService } from '@auth/auth.service';
+import { MainButtonComponent } from '@components/main-button/main-button.component';
 import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
@@ -10,7 +11,7 @@ import { NgxMaskDirective } from 'ngx-mask';
   standalone: true,
   templateUrl: './login-reactive-form.component.html',
   styleUrls: ['./login-reactive-form.component.css'],
-  imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective],
+  imports: [CommonModule, ReactiveFormsModule, NgxMaskDirective, MainButtonComponent],
 })
 export class LoginReactiveFormComponent {
   loginForm: FormGroup; // Declare um FormGroup

@@ -9,10 +9,7 @@ import { Observable, Subscription } from 'rxjs';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth/auth.service';
-
-interface Pokemon {
-  name: string;
-}
+import { MainButtonComponent } from '@components/main-button/main-button.component';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +17,7 @@ interface Pokemon {
 
 @Component({
   selector: 'app-home',
-  imports: [ListTasksComponent, RowComponent, I18nModule, AsyncPipe, CommonModule],
+  imports: [ListTasksComponent, RowComponent, I18nModule, AsyncPipe, CommonModule, MainButtonComponent],
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
