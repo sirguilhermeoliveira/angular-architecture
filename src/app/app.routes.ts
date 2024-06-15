@@ -1,7 +1,7 @@
 import { Routes, RouterModule  } from '@angular/router';
-import { LoginComponent } from '@pages/login/login.component';
-import { LoginReactiveFormComponent } from '@pages/login-reactive-form/login-reactive-form.component';
-import { HomeComponent } from '@pages/home/home.component';
+import { LoginComponent } from '@features/login/login.component';
+import { LoginReactiveFormComponent } from '@features/login-reactive-form/login-reactive-form.component';
+import { HomeComponent } from '@features/home/home.component';
 import { AuthGuard } from '@auth/auth.guard';
 
 

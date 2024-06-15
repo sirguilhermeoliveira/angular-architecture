@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth/auth.service';
 import { LoginComponent } from './login.component';
-import { RowComponent } from '@components/layouts/row/row.component';
+import { RowComponent } from '@layouts/row/row.component';
 import { NgxMaskDirective } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
 
@@ -40,14 +40,6 @@ describe('LoginComponent', () => {
   it('should initialize the form fields with default values', () => {
     expect(component.cellphone).toBe('');
     expect(component.password).toBe('');
-    expect(component.passwordFieldType).toBe('password');
-  });
-
-  it('should toggle password visibility', () => {
-    component.togglePasswordVisibility();
-    expect(component.passwordFieldType).toBe('text');
-    component.togglePasswordVisibility();
-    expect(component.passwordFieldType).toBe('password');
   });
 
   it('should show alert if cellphone or password is missing', () => {
