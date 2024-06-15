@@ -1,27 +1,116 @@
-# AngularArchitecture
+## Template Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
+# Template using react with common libs, and a pre-made architecture.
 
-## Development server
+# 📋 Requirements for running project without Docker
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Node 14.18.0+
 
-## Code scaffolding
+yarn
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# 🛠️ Run project
 
-## Build
+In terminal use: ng serve or npm start
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# 📌 Files pattern
 
-## Running unit tests
+*core* - 
+{
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    **guards**
 
-## Running end-to-end tests
+    classes that determine whether a route should be processed or not based on certain conditions.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    **services**
 
-## Further help
+    Here is the api files that are used for the integration
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+}
+
+*features* - contains the pages
+
+*shared*
+{
+    **assets**
+
+    This is where the project images, translation and icons belong
+
+    **components**
+
+    Here we place the components that are part of the pages, what makes a component a component is that it can be reused
+
+
+    **constants**
+
+    Here are the project specifications, such as your logos, color palette, colors, environment variables, keys. Which are used throughout the project
+
+    **layouts**
+
+    Contains layout components or modules used to structure the overall layout of the application. This might include components like header, footer, sidebar, etc.
+
+    **utils**
+
+    Contains utility functions or classes that are used across the application. These utilities provide common functionalities that can be reused throughout the proje
+
+}
+
+*store*
+
+Global storage using NgRx
+
+*environments*
+
+Contains environment-specific configuration files.
+
+# 📦 Commits pattern
+
+[type]: [description]
+
+**test**: indicates any type of creation or alteration of test codes. Example: Creating unit tests.
+
+**feat**: indicates the development of a new feature to the project. Example: Addition of a service, functionality, endpoint, etc.
+
+**refactor**: used when there is a code refactoring that does not have any impact on the system's business logic/rules. Example: Code changes after a code review
+
+**style**: employed when there are formatting and style changes to the code that do not change the system in any way.
+
+Example: Change style-guide, change lint convention, fix indentations, remove whitespace, remove comments, etc..
+
+**fix**: used when correcting errors that are generating bugs in the system.
+
+Example: Applying handling to a function that is not having the expected behavior and returning an error.
+
+**chore**: indicates design changes that do not affect system or test files. These are developmental changes.
+
+Example: Change eslint rules, add prettier, add more file extensions to .gitignore
+
+**docs**: used when there are changes to the project documentation.
+
+Example: add information in the API documentation, change the README, etc.
+
+**build**: used to indicate changes that affect the project's build process or external dependencies.
+
+Example: Gulp, add/remove npm dependencies, etc.
+
+**perf**: indicates a change that improved system performance.
+
+Example: change ForEach to while, improve the database query, etc.
+
+**ci**:
+
+used for changes in CI configuration files.
+Example: Circle, Travis, BrowserStack, etc.
+
+**revert**: indicates reverting a previous commit.
+
+# ✔️ Running with Docker
+
+Install docker
+
+docker build -t angular-architecture .
+
+docker run -p 8081:8081 -d angular-architecture
+
+docker-compose up -d
+
+After that process you can use only "docker-compose up" to open the project.
