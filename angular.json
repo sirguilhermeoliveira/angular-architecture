@@ -23,7 +23,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/app/assets",
+                "input": "src/app/shared/assets",
                 "output": "/assets/"
               },
               {
