@@ -1,6 +1,4 @@
 import { Component, Injectable  } from '@angular/core';
-import { ListTasksComponent } from '@components/list-tasks/list-tasks.component';
-import { RowComponent } from '@components/global/row/row.component';
 import { HttpService } from '@services/http.service';
 import { I18nModule } from '@assets/i18n/i18n.module';
 import * as PokemonActions from '@store/pokemon/pokemon.actions'; 
@@ -17,7 +15,7 @@ import { MainButtonComponent } from '@components/main-button/main-button.compone
 
 @Component({
   selector: 'app-home',
-  imports: [ListTasksComponent, RowComponent, I18nModule, AsyncPipe, CommonModule, MainButtonComponent],
+  imports: [ I18nModule, AsyncPipe, CommonModule, MainButtonComponent],
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

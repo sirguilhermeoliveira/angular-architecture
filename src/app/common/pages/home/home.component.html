@@ -2,9 +2,7 @@
   <h1>{{'HELLO' | translate}}, Home</h1>
   <h2>Exemplo integração</h2>
   <h3 *ngIf="pokemonName$ | async as pokemonName">{{ pokemonName }}</h3>
-  <row>
     <list-tasks [tasks]="['Tarefa 1', 'Tarefa 2', 'Tarefa 3']"></list-tasks>
-  </row>
   <h2>Exemplo utils</h2>
   <h3 *ngIf="formattedValue">{{ formattedValue | currency:'BRL':'symbol':'1.2-2' }}</h3> 
   <main-button [title]="'Logout'" (buttonClick)="logout()"></main-button>

@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
-import { RequestOptions } from '@interfaces/request-options.interface';
 import { environment } from '../environments/environment';
+
+interface RequestOptions {
+  method?: string;
+  headers?: {
+    [key: string]: string;
+  };
+}
 
 @Injectable({
   providedIn: 'root'
