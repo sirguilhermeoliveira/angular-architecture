@@ -7,7 +7,6 @@ import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { HomeComponent } from './home.component';
 import * as PokemonActions from '@store/pokemon/pokemon.actions';
 import { ListTasksComponent } from '@components/list-tasks/list-tasks.component';
-import { RowComponent } from '@components/global/row/row.component';
 import { I18nModule } from '@assets/i18n/i18n.module';
 import { CommonModule, AsyncPipe } from '@angular/common';
 
@@ -31,7 +30,6 @@ describe('HomeComponent', () => {
         CommonModule,
         AsyncPipe,
         ListTasksComponent,
-        RowComponent,
         I18nModule,
         StoreModule.forRoot({})
       ],

@@ -8,6 +8,7 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth/auth.service';
 import { MainButtonComponent } from '@components/main-button/main-button.component';
+import { ListTasksComponent } from '@components/list-tasks/list-tasks.component';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ import { MainButtonComponent } from '@components/main-button/main-button.compone
 
 @Component({
   selector: 'app-home',
-  imports: [ I18nModule, AsyncPipe, CommonModule, MainButtonComponent],
+  imports: [ I18nModule, AsyncPipe, CommonModule, MainButtonComponent, ListTasksComponent],
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth/auth.service';
 import { FormInputComponent } from '@components/form-input/form-input.component';
-import { RowComponent } from '@components/global/row/row.component';
+import { RowComponent } from '@components/layouts/row/row.component';
 import { MainButtonComponent } from '@components/main-button/main-button.component';
 import { NgxMaskDirective } from 'ngx-mask';
 
@@ -17,7 +17,7 @@ import { NgxMaskDirective } from 'ngx-mask';
 })
 
 
-export class Login {
+export class LoginComponent {
   title = 'Login';
   cellphone: string = '';
   password: string = '';

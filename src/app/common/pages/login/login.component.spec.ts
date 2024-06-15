@@ -2,14 +2,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth/auth.service';
-import { Login } from './login.component';
-import { RowComponent } from '@components/global/row/row.component';
+import { LoginComponent } from './login.component';
+import { RowComponent } from '@components/layouts/row/row.component';
 import { NgxMaskDirective } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
 
 describe('LoginComponent', () => {
-  let component: Login;
-  let fixture: ComponentFixture<Login>;
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
   let mockAuthService: jasmine.SpyObj<AuthService>;
   let mockRouter: jasmine.SpyObj<Router>;
 
@@ -18,7 +18,7 @@ describe('LoginComponent', () => {
     mockRouter = jasmine.createSpyObj('Router', ['navigate']);
 
     await TestBed.configureTestingModule({
-      declarations: [Login],
+      declarations: [LoginComponent],
       imports: [FormsModule, RowComponent, NgxMaskDirective, CommonModule],
       providers: [
         { provide: AuthService, useValue: mockAuthService },
@@ -28,7 +28,7 @@ describe('LoginComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Login);
+    fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

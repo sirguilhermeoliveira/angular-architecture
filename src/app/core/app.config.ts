@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
-import { routes } from '../routes/app.routes';
+import { routes } from '@routes/app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { IConfig, provideEnvironmentNgxMask } from 'ngx-mask'
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
