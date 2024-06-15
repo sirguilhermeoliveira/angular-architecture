@@ -1,20 +1,22 @@
 <div class="form-group">
-    <label [for]="id">{{ label }}:</label>
-    <input 
-      [type]="type" 
-      [id]="id" 
-      [name]="name" 
-      [(ngModel)]="ngModel" 
-      #ngModelRef="ngModel"
-      [minlength]="minlength"
-      [maxlength]="maxlength"
-      [required]="required"
-      [mask]="mask"
-      [placeholder]="placeholder">
-    <div *ngIf="ngModelRef.invalid && (ngModelRef.dirty || ngModelRef.touched)">
-      <div *ngIf="ngModelRef.errors?.['required']">{{ label }} tem que ter um valor</div>
-      <div *ngIf="ngModelRef.errors?.['minlength']">{{ label }} must be at least {{ minlength }} characters long.</div>
-      <div *ngIf="ngModelRef.errors?.['maxlength']">{{ label }} cannot be more than {{ maxlength }} characters long.</div>
-    </div>
-  </div>
-  
+  <label [for]="id">{{ label }}</label>
+  <div class="input-group">
+  <input
+    [type]="type"
+    [id]="id"
+    [name]="name"
+    [placeholder]="placeholder"
+    [required]="required"
+    [minlength]="minlength"
+    [maxlength]="maxlength"
+    [mask]="mask"
+    [(ngModel)]="value"
+    (ngModelChange)="onInputChange($event)"
+    (blur)="onBlur()"
+    class="form-control"
+  />
+  <button *ngIf="isPasswordVisible === true" type="button" (click)="togglePasswordVisibility()">
+    {{ type === 'text' ? 'Hide' : 'Show' }}
+  </button>
+</div>
+</div>

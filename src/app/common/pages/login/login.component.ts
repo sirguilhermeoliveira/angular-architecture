@@ -13,21 +13,14 @@ import { NgxMaskDirective } from 'ngx-mask';
   standalone: true,
   imports: [FormsModule, RowComponent, NgxMaskDirective, CommonModule, MainButtonComponent, FormInputComponent],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css'],
 })
-
-
 export class LoginComponent {
   title = 'Login';
   cellphone: string = '';
   password: string = '';
-  passwordFieldType: string = 'password';
   
   constructor(private router: Router, private authService: AuthService) {}
-
-  togglePasswordVisibility() {
-    this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
-  }
 
   login() {
     if (this.cellphone && this.password) {
@@ -40,5 +33,5 @@ export class LoginComponent {
     } else {
       alert('Please enter cellphone and password');
     }
-}
+  }
 }

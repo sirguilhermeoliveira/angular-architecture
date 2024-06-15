@@ -1,35 +1,33 @@
 <div class="login-container">
   <h2>Login</h2>
   <form (ngSubmit)="login()" #loginForm="ngForm">
-    <div class="form-group">
-      <label for="cellphone">Phone:</label>
-      <input type="text" id="cellphone" name="cellphone" [(ngModel)]="cellphone" mask="(00) 00000-0000" #cellphoneInput="ngModel" minlength="11" maxlength="15" required>
-    </div>
-    <app-login-input 
-    label="Phone" 
-    type="text" 
-    id="cellphone" 
-    name="cellphone" 
-    [(ngModel)]="cellphone" 
-    [required]="true" 
-    mask="'(00) 00000-0000'" 
-    placeholder="Enter your phone number" 
-    minlength="11"
-    #ngModelRef="ngModel"
-    maxLength="15" 
-    errorMessage="Phone is required." >
-  </app-login-input>
+    <form-input 
+      label="Phone" 
+      type="text" 
+      id="cellphone" 
+      [(ngModel)]="cellphone" 
+      name="cellphone" 
+      [mask]="'(00) 00000-0000'" 
+      #cellphoneInput="ngModel"
+      [required]="true" 
+      placeholder="Enter your phone number" 
+      [minlength]="11"
+      [maxlength]="15">
+    </form-input>
   
-  <app-login-input 
-  label="Password" 
-  type="passwordFieldType" 
-  id="password" 
-  name="password" 
-  [(ngModel)]="password" 
-  minlength="6" 
-  required="true"
-  errorMessage="Password is required." >
-</app-login-input>
+    <form-input 
+      label="Password" 
+      type="password" 
+      id="password" 
+      [(ngModel)]="password" 
+      placeholder="Enter your password" 
+      name="password" 
+      #passwordInput="ngModel"
+      [minlength]="6" 
+      
+      [required]="true">
+    </form-input>
+
     <main-button [isDisabled]="loginForm.invalid" [title]="'Login'" [buttonType]="'submit'"></main-button>
   </form>
 </div>
